@@ -18,6 +18,10 @@ $ npm install
 $ npm start
 ```
 
-## About
+## Acknowledgments/Copyleft
 
-'Where Should I Live' was developed at the 2017 Australian GovHack. Visit our official [hackerspace](https://2017.hackerspace.govhack.org/project/where-should-i-live) for further information and the datasets used.
+In the "Spirit of Govhack" and being a 1337 h4x0r, this project was lovingly ripped off/forked from the Govhack project: `Where Should I Live`.
+
+'Where Should I Live' was developed at the 2017 Australian GovHack at the ACT event. Visit their official [hackerspace](https://2017.hackerspace.govhack.org/project/where-should-i-live) for further information and the datasets used.
+
+We congratulate them for winning a Govhack award in 2017. There is no greater honor than imitation.
