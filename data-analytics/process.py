@@ -37,17 +37,18 @@ for col in header:
 
 suburbs = []
 ssc_obj = ProcessSSCData()
-with open(rent_csv,'rb') as f:
+with open(rent_csv, 'rb') as f:
 
     reader = csv.reader(f)
-    for i,row in enumerate(reader):
-        if (i == 0): continue
+    for i, row in enumerate(reader):
+        if i == 0:
+            continue
         ssc = row[0]
 
         suburb = {}
         code = int(ssc.replace("SSC", ""))
         name = ssc_obj.convert_ssc_to_suburb_name(code)
-        if (name == False):
+        if not name:
             continue
 
         suburb["ssc"] = code
@@ -73,7 +74,12 @@ with open(rent_csv,'rb') as f:
         
         suburbs.append(suburb)
 
-def write_suburbs_to_data (suburbs, outfile):    
+
+def write_suburbs_to_data (suburbs, outfile):
+    """
+        suburbs (list):
+        outfile (str):      the output file name
+    """
     minn = 0
     maxx = 0
     for suburb in suburbs:

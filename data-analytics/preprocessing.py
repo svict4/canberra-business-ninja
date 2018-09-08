@@ -5,6 +5,7 @@ import numpy as np
 
 from data_points import DataPoints
 
+
 class DatasetPreprocessing:
     def __init__(self):
         self.raw_data_folder = "../datasets"
@@ -460,6 +461,7 @@ class DatasetPreprocessing:
         self.process_fenced_dog_park(division_centers)
         self.process_crime_stats(division_centers)
         self.process_bus_data(division_centers)
+
 
 if __name__ == "__main__":
     preproc = DatasetPreprocessing()

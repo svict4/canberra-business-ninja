@@ -5,8 +5,7 @@ from preprocessing import DatasetPreprocessing
 
 
 class ProcessSSCData:
-
-	def __init__(self):
+	def __init__(self, ssc_src_file=None):
 		ssc_src_file = "../datasets/SSC_2016_AUST_ACT.csv"
 		self.dataobj = DatasetPreprocessing()
 		self.division_centers = self.dataobj.process_act_division_boundaries()
@@ -24,13 +23,13 @@ class ProcessSSCData:
 			if (code not in self.ssc_map) and (suburb in self.division_centers):
 				self.ssc_map[code] = suburb
 
-		
 	def convert_ssc_to_suburb_name(self, ssc):		
 		if ssc in self.ssc_map:
 			return self.ssc_map[ssc]
 		else:
 			return False
 
-if __name__=="__main__":		
+
+if __name__ == "__main__":
 	ssc_obj = ProcessSSCData()
 	print (ssc_obj.convert_ssc_to_suburb_name(80084))

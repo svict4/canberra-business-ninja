@@ -1,5 +1,6 @@
 import sys
 
+
 class Collect:
     def __init__(self):
         self.headers = []

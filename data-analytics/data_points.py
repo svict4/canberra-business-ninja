@@ -67,7 +67,7 @@ class DataPoints:
                 for suburb in self.suburb_polygons:
                     # print suburb, len(self.suburb_polygons[suburb])
                     if Polygon(self.suburb_polygons[suburb]).contains(point):
-                        print suburb, point
+                        print(suburb, point)
                         if suburb in self.suburb_grid:
                             self.suburb_grid[suburb].append((lon, lat))
                         else:
