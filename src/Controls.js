@@ -8,10 +8,25 @@ import 'rc-tooltip/assets/bootstrap.css';
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
 
+import TextField from '@material-ui/core/TextField';
+
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
 const Handle = Slider.Handle;
+
+const marksAge = {
+  0: "0-4",
+  10: "5-14",
+  20: "15-24",
+  30: "25-34",
+  40: "35-44",
+  50: "45-54",
+  60: "55-64",
+  70: "65-74",
+  80: "75-84",
+  90: "85+"
+};
 
 class Controls extends Component {
 
@@ -19,90 +34,64 @@ class Controls extends Component {
   {
     super();
     this.state = {
-      education_intensity: 50,
-      safety_intensity: 80,
-      nature_intensity: 50,
-      health_intensity: 80,
-      housing_intensity: 10,
-      transport_intensity: 50
+      age_intensity: 50,
+      income_intensity: 80
     };
   }
 
-  handleChange1 = (value) => {
+  handleChangeAge = (value) => {
     this.setState({
-      education_intensity: value
+      age_intensity: value
     });
   }
-  handleChange2 = (value) => {
+  handleChangeIncome = (value) => {
     this.setState({
-      safety_intensity: value
-    });
-  }
-
-  handleChange3 = (value) => {
-    this.setState({
-      nature_intensity: value
-    });
-  }
-  handleChange4 = (value) => {
-    this.setState({
-      health_intensity: value
-    });
-  }
-  handleChange5 = (value) => {
-    this.setState({
-      housing_intensity: value
-    });
-  }
-  handleChange6 = (value) => {
-    this.setState({
-      transport_intensity: value
+      income_intensity: value
     });
   }
 
   render() {
     return (
-      <div>
-      <section className="banner style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+      <section className="banner fullscreen style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 
         <div className="content">
-          <h2>Choose what matters to you</h2>
+          <p>Every business is different and knowing your audience is important. Not all toldlers are looking to buy a SUV, not all centenarian are looking to buy schoolies nightclub tickets. Or are they?</p>
+
           <p>
-          Each of the sliders corresponds to a factor which influences where you might want to live. Drag the sliders to indicate the importance of each one to your needs, and watch the heatmap change in response.
+          You know your business best. Our tool helps you find the next best place to help your business grow.
           </p>
 
+          <h2>Who is your target market?</h2>
+
           <ul className="actions vertical">
             <li>
-              Education
-              <Slider step={10} dots value={this.state.education_intensity} onChange={this.handleChange1} />
+              Age
+              <Slider step={10} max={90} dots range marks={marksAge} value={this.state.age_intensity} onChange={this.handleChangeAge} />
+              Weighting
+              <TextField
+                id="number"
+                label="Number"
+                value={this.state.age}
+                onChange={this.handleChange('age')}
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                margin="normal"
+              />
             </li>
             <li>
-              Safety
-              <Slider step={10} dots value={this.state.safety_intensity} onChange={this.handleChange2} />
-            </li>
-            <li>
-              Nature
-              <Slider step={10} dots value={this.state.nature_intensity} onChange={this.handleChange3} />
-            </li>
-            <li>
-              Health
-              <Slider step={10} dots value={this.state.health_intensity} onChange={this.handleChange4} />
-            </li>
-            <li>
-              Housing Affordability
-              <Slider step={10} dots value={this.state.housing_intensity} onChange={this.handleChange5} />
-            </li>
-            <li>
-              Transport
-              <Slider step={10} dots value={this.state.transport_intensity} onChange={this.handleChange6} />
+              Income
+              <Slider step={10} dots value={this.state.income_intensity} onChange={this.handleChangeIncome} />
             </li>
           </ul>
 
           <ul className="actions vertical">
-            <li><a href="#second" className="button smooth-scroll-middle"> Find out how it works </a></li>
+            <li><a href="#second" className="button smooth-scroll-middle"> What's this voodoo magic? </a></li>
           </ul>
-
         </div>
+
+        
 
         <div className="image" alt="">
             <DataConnector
@@ -115,9 +104,6 @@ class Controls extends Component {
            />
         </div>
         </section>
-
-</div>
-
     );
   }
 

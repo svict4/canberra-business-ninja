@@ -57,7 +57,7 @@ class DataConnector extends Component {
                 />
               </LayersControl.BaseLayer>
 
-              <LayersControl.Overlay name="Summary" checked>
+              {/* <LayersControl.Overlay name="Summary" checked>
                 <FeatureGroup color="red">
                   <HeatmapLayer
                     points={summary}
@@ -71,7 +71,7 @@ class DataConnector extends Component {
                       )}
                   />
                 </FeatureGroup>
-              </LayersControl.Overlay>
+              </LayersControl.Overlay> */}
 
               <LayersControl.Overlay name="Boundaries"
               fitBoundsOnLoad
