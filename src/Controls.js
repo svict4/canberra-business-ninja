@@ -1,6 +1,6 @@
 import React, { Component }  from 'react'
 import { render } from 'react-dom'
-import DataConnector from './App'
+import MyHeatMap from './App'
 
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
@@ -9,6 +9,7 @@ import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
 
 import TextField from '@material-ui/core/TextField';
+import DataConnector from './App';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -67,18 +68,18 @@ class Controls extends Component {
             <li>
               Age
               <Slider step={10} max={90} dots range marks={marksAge} value={this.state.age_intensity} onChange={this.handleChangeAge} />
-              Weighting
+              {/* Weighting
               <TextField
                 id="number"
                 label="Number"
                 value={this.state.age}
-                onChange={this.handleChange('age')}
+                onChange={this.handleChangeAge}
                 type="number"
                 InputLabelProps={{
                   shrink: true,
                 }}
                 margin="normal"
-              />
+              /> */}
             </li>
             <li>
               Income
@@ -86,21 +87,19 @@ class Controls extends Component {
             </li>
           </ul>
 
+          <p>Click on a subrub to get a closer look</p>
+
           <ul className="actions vertical">
-            <li><a href="#second" className="button smooth-scroll-middle"> What's this voodoo magic? </a></li>
+            <li><a href="#third" className="button smooth-scroll-middle"> What's this voodoo magic? </a></li>
           </ul>
         </div>
 
         
 
         <div className="image" alt="">
-            <DataConnector
-            education_intensity={this.state.education_intensity}
-            safety_intensity={this.state.safety_intensity}
-            nature_intensity={this.state.nature_intensity}
-            health_intensity={this.state.health_intensity}
-            housing_intensity={this.state.housing_intensity}
-            transport_intensity={this.state.transport_intensity}
+            <MyHeatMap
+            // age_intensity={this.state.age_intensity}
+            // income_intensity={this.state.income_intensity}
            />
         </div>
         </section>
