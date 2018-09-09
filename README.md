@@ -23,6 +23,8 @@ The way that our web application recommends locations to entrepreneurs is based 
 
 [//]: # (Further, CanberraBusiness.Ninja takes data from sources such as the Yellow Pages to determine the level of competition that exists in the areas of interest to further pin down the optimal location for a small business to be located.)
 
+##
+
 ## Installation
 
 Software pre-requisites are nodejs and npm.
@@ -49,6 +51,7 @@ We congratulate them for winning a Govhack award in 2017 🎉 There is no greate
 
 ## Data Sets and Methodology
 
-Please see the Govhack Project page.
+We take a noramlised average of age, income and public art displays against each suburb in Canebrra.
+This is done by taking the min and max then noramlise to output a score between 0 and 1 that determins the colouring for each suburb.
 
-##
+Please see the Govhack Project page for more information.
