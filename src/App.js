@@ -3,15 +3,11 @@ import { render } from "react-dom";
 import {
   Map,
   TileLayer,
-  Marker,
-  Popup,
   LayersControl,
-  FeatureGroup,
   GeoJSON
 } from "react-leaflet";
-import HeatmapLayer from "react-leaflet-heatmap-layer";
 import boundary_json from "./data/ACT-Division-Boundaries.json";
-import { summary } from "./data/expanded_summary.js";
+import census_json from "./data/census.json";
 
 class MyHeatMap extends Component {
   constructor() {
@@ -20,28 +16,46 @@ class MyHeatMap extends Component {
     this.position = [-35.325, 149.09];
     this.sliderValue = 5;
 
-    this.getFeatureColor = this.getFeatureColor.bind(this);
+    this.colorFunction = this.colorFunction.bind(this);
     this.style = this.style.bind(this);
+    this.getGradient = this.getGradient.bind(this);
   }
 
-  getFeatureColor = (feature) => {
-    console.log(feature.properties.division_name)
-    if (feature.properties.division_name == "PHILLIP") {
-      return "green";
-    } else {
-      return "red";
-    }
+  // gradient color between green and red, accepts a float between 0 and 1
+  getGradient(value){
+    var hue=((1-value)*120).toString(10);
+    return ["hsl(",hue,",100%,50%)"].join("");
+  }
+
+  colorFunction = (feature) => {
+    //console.log(feature.properties.division_name)
+    //this.props.age_intensity/100
+    //this.props.income_intensity/100
+
+
+    // if (feature.properties.division_name == "PHILLIP") {
+    //   return "green";
+    // } else {
+    //   return "red";
+    // }
   }
 
   style(feature) {
     // console.log(feature.properties.division_name)
     return {
-      fillColor: this.getFeatureColor(feature)
+      fillColor: this.colorFunction(feature)
     };
   }
 
   onEachFeature(feature, layer) {
     
+  }
+
+  componentWillUpdate() {
+    //console.log(this.props.age_intensity/10);
+    let ageArray = census_json.age[this.props.age_intensity/10];
+    ageArrayMin = Math.min(...ageArray);
+    ageArrayMax = Math.max(...ageArray);
   }
 
   render() {

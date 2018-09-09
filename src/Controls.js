@@ -98,8 +98,8 @@ class Controls extends Component {
 
         <div className="image" alt="">
             <MyHeatMap
-            // age_intensity={this.state.age_intensity}
-            // income_intensity={this.state.income_intensity}
+             age_intensity={this.state.age_intensity}
+             income_intensity={this.state.income_intensity}
            />
         </div>
         </section>
