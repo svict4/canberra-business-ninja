@@ -35,7 +35,15 @@ class MyHeatMap extends Component {
     //console.log(feature.properties.division_name, summary_json[feature.properties.division_name].age[this.props.age_intensity/10]);
     let ageError = (summary_json[feature.properties.division_name].age[(this.props.age_intensity)/10+1] - this.props.age_intensity/100);
     let incomeError = summary_json[feature.properties.division_name].income[this.props.income_intensity/10+1] - [this.props.income_intensity/100]; 
-    return this.getGradient(ageError + incomeError / 2);
+    let quirkyError = summary_json[feature.properties.division_name].art.count - [this.props.quirky_intensity/100 + 50];
+
+
+    // if (summary_json[feature.properties.division_name].art.count != undefined) {
+    //   quirkyError = summary_json[feature.properties.division_name].art.count - [this.props.quirky_intensity/100]
+    // }
+    
+    //console.log(this.props.quirky_intensity, summary_json[feature.properties.division_name].art[this.props.quirky_intensity/10+1])
+    return this.getGradient((ageError + incomeError / 2) + quirkyError);
   }
   
   style(feature) {

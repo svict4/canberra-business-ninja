@@ -31,8 +31,8 @@ const marksAge = {
 
 const marksQuirky = {
   0: "Grey wall",
-  50: "Coffee Hipsters",
-  100: "Belconnon Owl"
+  10: "Coffee Hipsters",
+  20: "Belconnon Owl"
 }
 
 const marksIncome = {
@@ -95,14 +95,14 @@ class Controls extends Component {
             </li>
             <li>
               Quirkyness
-              <Slider step={10} dots marks={marksQuirky} value={this.state.quirky_intensity} onChange={this.handleChangeQuirky} />
+              <Slider step={10} max={20} dots marks={marksQuirky} value={this.state.quirky_intensity} onChange={this.handleChangeQuirky} />
             </li>
           </ul>
 
           
 
           <ul className="actions vertical" style={{paddingTop: "10px"}} >
-            <li><a href="#third" className="button smooth-scroll-middle"> What's this voodoo magic? </a></li>
+            <li><a href="https://2018.hackerspace.govhack.org/projects/canberra_business_ninja_36" className="button smooth-scroll-middle"> How does it work? </a></li>
           </ul>
         </div>
 
@@ -112,6 +112,7 @@ class Controls extends Component {
             <MyHeatMap
              age_intensity={this.state.age_intensity}
              income_intensity={this.state.income_intensity}
+             quirky_intensity={this.state.quirky_intensity}
            />
         </div>
         </section>
