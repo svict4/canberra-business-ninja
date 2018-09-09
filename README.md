@@ -1,6 +1,12 @@
+# Canberra Business Ninja
+
+http://canberrabusiness.ninja
+
+[Govhack 2018 Project Page](https://2018.hackerspace.govhack.org/projects/canberra_business_ninja_36)
+
 ## Introduction
 
-Scaling your SMB (Small and Medium-sized Businesses) is hard work. It's difficult to ascertain if a particular business district or the local corner shops is the best place to move to or best place to set up a new store. Understanding your customer needs is one thing, understanding your business needs is another. Or is it?
+Scaling your SMB (Small and Medium-sized Businesses) is hard work. It's difficult to ascertain if a particular business district or the local corner shops is the best place to move to or best place to set up a new store. Understanding your customer where your customers are is one thing, understanding your business needs is another.
 
 ### Better Enable Councils to Develop Local Economies
 
@@ -41,6 +47,8 @@ We congratulate them for winning a Govhack award in 2017 🎉 There is no greate
 
 ##
 
-## Data Sets
+## Data Sets and Methodology
+
+Please see the Govhack Project page.
 
 ##
