@@ -8,6 +8,7 @@ import {
 } from "react-leaflet";
 import boundary_json from "./data/ACT-Division-Boundaries.json";
 import census_json from "./data/census.json";
+import summary_json from "./data/summary.json";
 
 class MyHeatMap extends Component {
   constructor() {
@@ -27,19 +28,16 @@ class MyHeatMap extends Component {
     return ["hsl(",hue,",100%,50%)"].join("");
   }
 
-  colorFunction = (feature) => {
-    //console.log(feature.properties.division_name)
+  colorFunction = (feature) => {    
     //this.props.age_intensity/100
     //this.props.income_intensity/100
 
-
-    // if (feature.properties.division_name == "PHILLIP") {
-    //   return "green";
-    // } else {
-    //   return "red";
-    // }
+    //console.log(feature.properties.division_name, summary_json[feature.properties.division_name].age[this.props.age_intensity/10]);
+    let ageError = (summary_json[feature.properties.division_name].age[(this.props.age_intensity)/10+1] - this.props.age_intensity/100);
+    let incomeError = summary_json[feature.properties.division_name].income[this.props.income_intensity/10+1] - [this.props.income_intensity/100]; 
+    return this.getGradient(ageError + incomeError / 2);
   }
-
+  
   style(feature) {
     // console.log(feature.properties.division_name)
     return {
@@ -47,15 +45,16 @@ class MyHeatMap extends Component {
     };
   }
 
+
   onEachFeature(feature, layer) {
     
   }
 
   componentWillUpdate() {
     //console.log(this.props.age_intensity/10);
-    let ageArray = census_json.age[this.props.age_intensity/10];
-    ageArrayMin = Math.min(...ageArray);
-    ageArrayMax = Math.max(...ageArray);
+    // let ageArray = census_json.age[this.props.age_intensity/10];
+    // let ageArrayMin = Math.min(...ageArray);
+    // let ageArrayMax = Math.max(...ageArray);
   }
 
   render() {
