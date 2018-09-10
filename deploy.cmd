@@ -98,6 +98,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 call :SelectNodeVersion
 
 :: 3. Install npm packages
+echo Installing npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! install --production
@@ -106,8 +107,9 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Build client
+echo Building production assets
 IF EXIST "%DEPLOYMENT_TARGET%\node_modules" (
-  pushd "%DEPLOYMENT_TARGET%\client"
+  pushd "%DEPLOYMENT_TARGET%"
   call .\node_modules\.bin\react-scripts.cmd build
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
