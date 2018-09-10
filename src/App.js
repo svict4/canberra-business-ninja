@@ -24,7 +24,7 @@ class MyHeatMap extends Component {
 
   // gradient color between green and red, accepts a float between 0 and 1
   getGradient(value){
-    var hue=((1-value)*120).toString(10);
+    var hue=(value*120).toString(10);
     return ["hsl(",hue,",100%,50%)"].join("");
   }
 
